@@ -20,7 +20,7 @@ if os.path.isfile("env.py"):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATE_DIR = os.path.join(BASE_DIR, ‘templates’)
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
 
     'cloudinary_storage',
-    'Django.contrib.staticfiles', 
-    'Cloudinary',
+    'django.contrib.staticfiles',
+    'cloudinary',
 
     'blog',
     
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'codestar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,8 +134,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, ‘static’)]
-STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
